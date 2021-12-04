@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body style="background-color:powderblue;">
+
+<h1 style="background-color: darkgrey; font-size: 300%; text-align:center;">Welcome to Merchant Venturers Building</h1>
+<p style="text-align:center; background-color: coral;">Which room are you looking for? &#128270;</p>
+
+<form action="index.html" style="text-align: center;">Room Number:
+
+    <input type="text" id="txtName" placeholder="enter the room number"><input type="button" id="btn" value="Search"/>
+
+</form></br>
+
+<table width="80%" align="center">
+    <tr>
+        <td>Path is</td>
+    </tr>
+    <tbody id="content">
+    </tbody>
+</table>
+
+
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            $.post({
+                url:"/a1",
+                data:{'name':$("#txtName").val()},
+                success:function(data) {
+                    $("#content").html(data);
+                }
+            }
+                );
+        })
+    })
+</script>
+
+</body>
+</html>
